@@ -20,7 +20,7 @@ We compare a variety of LLMs with diverse properties to evaluate broad LLM perfo
 
 Despite performing unexpectedly around particle movement, LLMs generally align with human preferences around constituent ordering.
 
-![Figure One](fig1.jpg)
+![Figure One](figs/fig1.jpg)
 
 Broadly speaking, a clear trend is maintained across humans and models, following what has been presented in prior linguistic research. Where human language sees motivation for  movement with increasing weight, model behavior follows closely.
 Interestingly, we observe an unexpected trend where instruction-tuned models, which

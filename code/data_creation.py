@@ -8,6 +8,7 @@ def powerset(iterable):
     s = list(iterable)
     return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
 
+
 #====================GENERATING HNPS DATA====================
 
 pivots = {['met', 'saw', 'noticed']: [['at the park', 'in the store', 'after the party'],
@@ -156,94 +157,188 @@ with open('pm_OUTPUT.json', 'w') as fp:
         fp.write(line)
 
 
-#====================GENERATING DA DATA [TODO]====================
+#====================GENERATING DA DATA====================
 
 pivots = {
      "gave": [{"his roommate": [["sweet", "friendly", "college"], ["from Dubai"]], 
                "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
                "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]]},
-              {}],
+              {"a gift": [["pricey", "birthday"], ["with a card"]],
+               "the documents": [["important", "personal"], ["with his full name", "from his medical visit"]],
+               "flowers": [["beautiful", "pink"], ["with trimmed stems", "from the nursery in town", "with a lace wrap"]],
+               "a car": [["new", "red", "sports"], ["with drivers assistance", "for safe commuting"]]}],
      "sent": [{"his roommate": [["sweet", "friendly", "college"], ["from Dubai"]], 
                "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
                "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]],
                "his family": [["large", "religious", "extended"], ["from the farms", "in the plains", "in Kansas"]],
                "his wife": [["estranged", "unfaithful"], ["from Vegas", "with the gambling addiction"]]}, 
-              {"": [[], []]}],
+              {"a gift": [["pricey", "birthday"], ["with a card"]],
+               "the documents": [["important", "personal"], ["with his full name", "from his medical visit"]],
+               "flowers": [["beautiful", "pink"], ["with trimmed stems", "from the nursery in town", "with a lace wrap"]],
+               "a car": [["new", "red", "sports"], ["with drivers assistance", "for safe commuting"]],
+               "a letter": [["serious", "long", "written"], ["with bank information", "for the financial account", "for the house"]],
+               "a message": [["short", "polite", "notice"], ["about his travel in Europe", "from his work"]]}],
      "mailed": [{"his roommate": [["sweet", "friendly", "college"], ["from Dubai"]], 
-               "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
-               "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]],
-               "his family": [["large", "religious", "extended"], ["from the farms", "in the plains", "in Kansas"]],
-               "his wife": [["estranged", "unfaithful"], ["from Vegas", "with the gambling addiction"]]}, 
-                {"": [[], []]}], 
+                 "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
+                 "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]],
+                 "his family": [["large", "religious", "extended"], ["from the farms", "in the plains", "in Kansas"]],
+                 "his wife": [["estranged", "unfaithful"], ["from Vegas", "with the gambling addiction"]]}, 
+                {"a gift": [["pricey", "birthday"], ["with a card"]],
+                 "the documents": [["important", "personal"], ["with his full name", "from his medical visit"]],
+                 "flowers": [["beautiful", "pink"], ["with trimmed stems", "from the nursery in town", "with a lace wrap"]],
+                 "a car": [["new", "red", "sports"], ["with drivers assistance", "for safe commuting"]],
+                 "a letter": [["serious", "long", "written"], ["with bank information", "for the financial account", "for the house"]],
+                 "a message": [["short", "polite", "notice"], ["about his travel in Europe", "from his work"]]}], 
      "shipped": [{"his roommate": [["sweet", "friendly", "college"], ["from Dubai"]], 
-               "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
-               "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]]}, 
-                 {"": [[], []]}],
-     "played": [{"his friend": [["good", "childhood"], []],
-                 "his roommate": [["new", "visiting", "exchange"], []],
-                 "his mom": [["sweet", "supportive", "caring"], []]}, 
-                {"": [[], []]}],
-     "showed": [{"his friend": [["good", "childhood"], []],
-                 "his roommate": [["new", "visiting", "exchange"], []],
-                 "his mom": [["sweet", "supportive", "caring"], []],
-                 "the group": [["large", "crowded", "tour"], []],
-                 "his sister": [["tall", "older", "step"], []]}, 
-                {"": [[], []]}],
-     "wrote": [{"his family": [["large", "religious", "extended"], []],
-                "his wife": [["estranged", "unfaithful"], []]}, 
-               {"": [[], []]}],
-     "drafted": [{"his family": [["large", "religious", "extended"], []],
-                  "his wife": [["estranged", "unfaithful"], []]}, 
-                 {"": [[], []]}],
-     "sells": [{"immigrants": [["fresh", "American"], []],
-                "students": [["wealthy", "college"], []]},
-               {"": [[], []]}],
-     "rents": [{"immigrants": [["fresh", "American"], []],
-                "students": [["wealthy", "college"], []]},
-               {"": [[], []]}],
-     "leases": [{"immigrants": [["fresh", "American"], []],
-                 "students": [["wealthy", "college"], []]},
-                {"": [[], []]}],
+                  "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
+                  "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]]}, 
+                 {"a gift": [["pricey", "birthday"], ["with a card"]],
+                  "the documents": [["important", "personal"], ["with his full name", "from his medical visit"]],
+                  "flowers": [["beautiful", "pink"], ["with trimmed stems", "from the nursery in town", "with a lace wrap"]],
+                  "a car": [["new", "red", "sports"], ["with drivers assistance", "for safe commuting"]]}],
+     "played": [{"his friend": [["good", "childhood"], ["from France", "with an interest in film"]],
+                 "his roommate": [["new", "visiting", "exchange"], ["from Korea", "with his professor"]],
+                 "his mom": [["sweet", "supportive", "caring"], ["with a film degree", "from North Carolina"]]}, 
+                {"a video": [["long", "amateur", "comedy"], ["for a class"]],
+                 "his presentation": [["detailed", "persuasive", "PowerPoint"], ["on his research", "for his thesis", "on chemistry"]],
+                 "a movie": [["low-budget", "novice", "studio"], ["with a plot"]],
+                 "a song": [["new", "energetic", "danceable", "pop"], ["with a really good chorus", "from his favorite record label"]]}],
+     "showed": [{"his friend": [["good", "childhood"], ["from France", "with an interest in film"]],
+                 "his roommate": [["new", "visiting", "exchange"], ["from Korea", "with his professor"]],
+                 "his mom": [["sweet", "supportive", "caring"], ["with a film degree", "from North Carolina"]],
+                 "the group": [["large", "crowded", "tour"], ["with bags", "with maps", "from America"]],
+                 "his sister": [["tall", "older", "step"], ["with an art history degree", "from Michigan"]]}, 
+                {"a video": [["long", "amateur", "comedy"], ["for a class"]],
+                 "his presentation": [["detailed", "persuasive", "PowerPoint"], ["on his research", "for his thesis", "on chemistry"]],
+                 "a movie": [["low-budget", "novice", "studio"], ["with a plot"]],
+                 "a song": [["new", "energetic", "danceable", "pop"], ["with a really good chorus", "from his favorite record label"]],
+                 "the piece": [["famous", "large", "art"],["with the picture", "of a woman"]],
+                 "the painting": [["impressive", "grand", "Monet"], ["with the lilies", "of the lake"]],
+                 "the building": [["tall", "Baroque", "church"], ["with the dome", "by the famous artist", "from Italy"]],
+                 "his outfit": [["expensive", "handmade", "tailored", "silk"], ["from the designer", "for the gala", "for the evening"]]}],
+     "wrote": [{"his family": [["large", "religious", "extended"], ["from the farms", "in the plains", "in Kansas"]],
+                "his wife": [["estranged", "unfaithful"], ["from Vegas", "with the gambling addiction"]]}, 
+               {"a letter": [["serious", "long", "written"], ["with bank information", "for the financial account", "for the house"]],
+                "a message": [["short", "polite", "notice"], ["about his travel in Europe", "from his work"]]}],
+     "drafted": [{"his family": [["large", "religious", "extended"], ["from the farms", "in the plains", "in Kansas"]],
+                  "his wife": [["estranged", "unfaithful"], ["from Vegas", "with the gambling addiction"]]}, 
+                 {"a letter": [["serious", "long", "written"], ["with bank information", "for the financial account", "for the house"]],
+                  "a message": [["short", "polite", "notice"], ["about his travel in Europe", "from his work"]]}],
+     "sells": [{"immigrants": [["fresh", "American"], ["with college degrees", "in politics", "from Texas"]],
+                "students": [["wealthy", "college"], ["with jobs", "at the campus", "in the city"]]},
+               {"houses": [["large", "modern", "vacation"], ["from a famous architect", "from the 80s"]],
+                "apartments": [["small", "cheap", "studio"], ["with balconies", "on the main street", "in downtown"]],
+                "cars": [["exotic", "sports"], ["with loud exhausts", "from Japan"]]}],
+     "rents": [{"immigrants": [["fresh", "American"], ["with college degrees", "in politics", "from Texas"]],
+                "students": [["wealthy", "college"], ["with jobs", "at the campus", "in the city"]]},
+               {"houses": [["large", "modern", "vacation"], ["from a famous architect", "from the 80s"]],
+                "apartments": [["small", "cheap", "studio"], ["with balconies", "on the main street", "in downtown"]],
+                "cars": [["exotic", "sports"], ["with loud exhausts", "from Japan"]]}],
+     "leases": [{"immigrants": [["fresh", "American"], ["with college degrees", "in politics", "from Texas"]],
+                 "students": [["wealthy", "college"], ["with jobs", "at the campus", "in the city"]]},
+                {"houses": [["large", "modern", "vacation"], ["from a famous architect", "from the 80s"]],
+                 "apartments": [["small", "cheap", "studio"], ["with balconies", "on the main street", "in downtown"]],
+                 "cars": [["exotic", "sports"], ["with loud exhausts", "from Japan"]]}],
      "brought": [{"his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
                   "Mary": [["friendly"], ["from the dorms", "in the college"]]}, 
-                 {"": [[], []]}],
+                 {"soup": [["warm", "chicken"], ["with vegetables", "from his kitchen"]],
+                  "his guitar": [["old", "cheap", "black"], ["from his rock band", "from his childhood"]],
+                  "a novel": [["long", "raunchy", "romance"], ["with a special chapter", "from the event"]]}],
      "left": [{"his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
                "Mary": [["friendly"], ["from the dorms", "in the college"]]}, 
-              {"": [[], []]}],
+              {"soup": [["warm", "chicken"], ["with vegetables", "from his kitchen"]],
+               "his guitar": [["old", "cheap", "black"], ["from his rock band", "from his childhood"]],
+               "a novel": [["long", "raunchy", "romance"], ["with a special chapter", "from the event"]]}],
      "cooked": [{"the man": [["poor", "sick", "homeless"], ["on the street", "with a limp"]],
-               "his mother": [["old", "sick", "disabled"], ["at the care home", "in Miami", "with Alzheimers"]],
-               "his family": [["large", "hungry"], ["of ten", "with extended relatives", "from Mississippi"]],
-               "his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
-               "Mary": [["friendly"], ["from the dorms", "in the college"]]}, 
-                {"": [[], []]}],
+                 "his mother": [["old", "sick", "disabled"], ["at the care home", "in Miami", "with Alzheimers"]],
+                 "his family": [["large", "hungry"], ["of ten", "with extended relatives", "from Mississippi"]],
+                 "his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
+                 "Mary": [["friendly"], ["from the dorms", "in the college"]]}, 
+                {"soup": [["warm", "chicken"], ["with vegetables", "from his kitchen"]],
+                 "a feast": [["grand", "hearty", "celebratory"], ["of pie", "with chicken", "from the farm"]]}],
      "prepared": [{"the man": [["poor", "sick", "homeless"], ["on the street", "with a limp"]],
-               "his mother": [["old", "sick", "disabled"], ["at the care home", "in Miami", "with Alzheimers"]],
-               "his family": [["large", "hungry"], ["of ten", "with extended relatives", "from Mississippi"]],
-               "his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
-               "Mary": [["friendly"], ["from the dorms", "in the college"]]},
-                  {"": [[], []]}],
+                   "his mother": [["old", "sick", "disabled"], ["at the care home", "in Miami", "with Alzheimers"]],
+                   "his family": [["large", "hungry"], ["of ten", "with extended relatives", "from Mississippi"]],
+                   "his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
+                   "Mary": [["friendly"], ["from the dorms", "in the college"]]},
+                  {"soup": [["warm", "chicken"], ["with vegetables", "from his kitchen"]],
+                   "a feast": [["grand", "hearty", "celebratory"], ["of pie", "with chicken", "from the farm"]]}],
      "made": [{"the man": [["poor", "sick", "homeless"], ["on the street", "with a limp"]],
                "his mother": [["old", "sick", "disabled"], ["at the care home", "in Miami", "with Alzheimers"]],
                "his family": [["large", "hungry"], ["of ten", "with extended relatives", "from Mississippi"]],
                "his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
                "Mary": [["friendly"], ["from the dorms", "in the college"]]},
-              {"": [[], []]}],
+              {"soup": [["warm", "chicken"], ["with vegetables", "from his kitchen"]],
+               "a feast": [["grand", "hearty", "celebratory"], ["of pie", "with chicken", "from the farm"]]}],
      "built": [{"his parents": [["kind", "old", "disabled"], ["from Bulgaria"]],
                 "the citizens": [["injured", "homeless"], ["without shelter", "in a city", "in the Midwest"]],
                 "the children": [["young", "poor", "orphaned"], ["from the disaster", "in his town"]],
                 "his brother": [["unemployed", "sick", "younger"], ["with cancer", "from the mines"]]}, 
-               {"": [[], []]}],
+               {"a house": [["beautiful", "big", "suburban"], ["with a deck", "for fishing by the lake"]],
+                "an app": [["automated", "intelligent", "assistant"], ["with a direct line to 911", "for helping disabled people"]],
+                "a boat": [["big", "fast", "green", "speed"], ["with powered engines", "for driving on the water"]]}],
      "constructed": [{"his parents": [["kind", "old", "disabled"], ["from Bulgaria"]],
                       "the citizens": [["injured", "homeless"], ["without shelter", "in a city", "in the Midwest"]],
                       "the children": [["young", "poor", "orphaned"], ["from the disaster", "in his town"]],
                       "his brother": [["unemployed", "sick", "younger"], ["with cancer", "from the mines"]]},
-                     {"": [[], []]}]
+                     {"a house": [["beautiful", "big", "suburban"], ["with a deck", "for fishing by the lake"]],
+                      "an app": [["automated", "intelligent", "assistant"], ["with a direct line to 911", "for helping disabled people"]],
+                      "a boat": [["big", "fast", "green", "speed"], ["with powered engines", "for driving on the water"]]}]
 }
 
 count = 0
 dict_list = []
 
+for verb in pivots:
+  obj1_dict, obj2_dict = pivots[verb]
 
+  for obj1 in obj1_dict:
+    adjs1, preps1 = obj1_dict[obj1]
+    adj1_list = list(powerset(adjs1))
+    prep1_list = list(powerset(preps1))
+
+    for obj2 in obj2_dict:
+      adjs2, preps2 = obj2_dict[obj2]
+      adj2_list = list(powerset(adjs2))
+      prep2_list = list(powerset(preps2))
+
+      for adj1 in adj1_list:
+        for adj2 in adj2_list:
+          for prep1 in prep1_list:
+            for prep2 in prep2_list:
+
+              if len(adj1) == 0:
+                if len(prep1) == 0:
+                  full_obj1 = obj1
+                else:
+                  full_obj1 = f'{obj1} {' '.join(prep1)}'
+                  
+              else:
+                if len(prep1) == 0:
+                  full_obj1 = f'{', '.join(adj1)} {obj1}'
+                else:
+                  full_obj1 = f'{', '.join(adj1)} {obj1} {' '.join(prep1)}'
+              
+              if len(adj2) == 0:
+                if len(prep2) == 0:
+                  full_obj2 = obj2
+                else:
+                  full_obj2 = f'{obj2} {' '.join(prep2)}'
+                  
+              else:
+                if len(prep2) == 0:
+                  full_obj2 = f'{', '.join(adj2)} {obj2}'
+                else:
+                  full_obj2 = f'{', '.join(adj2)} {obj2} {' '.join(prep2)}'
+              
+              shifted_sentence = f'John {verb} {full_obj1} {full_obj2}.'
+              unshifted_sentence = f'John {verb} {full_obj2} to {full_obj1}.' ### Note 'to' vs. 'for' is variable depending on object/verb
+              data = [unshifted_sentence, shifted_sentence]
+              unshifted_data = {'id': count, 'sentence': unshifted_sentence, 'shifted': False, 'subject': 'John', 'verb': verb, 'obj1': obj1, 'adjs1': adj1, 'preps1': prep1, 'obj2': obj2, 'adjs2': adj2, 'preps2': prep2}
+              shifted_data = {'id': count, 'sentence': shifted_sentence, 'shifted': True, 'subject': 'John', 'verb': verb, 'obj1': obj1, 'adjs1': adj1, 'preps1': prep1, 'obj2': obj2, 'adjs2': adj2, 'preps2': prep2}
+              dict_list.append(unshifted_data)
+              dict_list.append(shifted_data)
+              count += 1
 
 with open('da_OUTPUT.json', 'w') as fp:
     for dictionary in dict_list:
@@ -251,50 +346,121 @@ with open('da_OUTPUT.json', 'w') as fp:
         fp.write(line)
 
 
-#====================GENERATING MPP DATA [TODO]====================
+#====================GENERATING MPP DATA====================
 
-
+pivots = {["went", "drove"]: 
+            [{"to the event": [["annual", "charity", "auction"], ["in the convention center", "of the metropolis"]],
+              "to class": [["advanced", "graduate", "economics"], ["on the second floor", "of the finance building", "in the downtown campus"]],
+              "to the beach": [["warm", "sandy", "surfing"], ["on the coast", "in the countryside", "by her mother's home"]],
+              "to the concert": [["crowded", "folk", "music"], ["in the stadium", "on fourth street", "in downtown"]],
+              "on vacation": [["her", "yearly", "spring"], ["to the mountains", "in Canada"]]}, 
+             {"in her car": [["small", "green", "electric"], ["with her favorite songs", "for her trip"]],
+              "in a truck": [["big", "heavy", "loaded"], ["from the military"]],
+              "with a van": [["large", "cheap", "rented"], ["with space", "for her supplies"]],
+              "to the movie": [["new", "Marvel", "action"], ["in theatres", "in downtown"]],
+              "to the mall": [["nearby", "old", "shopping"], ["with a food court", "with fast food"]],
+              "to our class": [["morning", "advanced", "math"], ["with Mr. Jones", "in the science building"]]}],
+          ["talked", "chatted"]: 
+            [{"to her friend": [["sweet", "quiet", "short"], ["from college", "in Nebraska"]],
+              "to the woman": [["bright", "helpful", "professional"], ["in HR", "at her job"]],
+              "to Michael": [["tall", "skinny"], ["with red hair", "from HR", "in the company"]],
+              "with Emily": [["her good friend"], ["and her friends", "from class"]],
+              "with the man": [["tall", "attractive", "buff"], ["from her gym"]],
+              "with her professor": [["favorite", "old", "science"], ["in the biology department", "at the university"]],
+              "with her team": [["new", "assigned", "economics"], ["for stock predictions", "in the finance branch", "in the company"]],
+              "with her boss": [["rude", "ignorant", "unprofessional"], ["from Cincinnati"]],
+              "during the conference": [["annual", "academia", "charity"], ["in Nepal", "for research endeavors", "in economics"]],
+              "during the meeting": [["dedicated", "internal", "complaints"], ["for speaking with HR", "about company funding", "for organized projects"]]}, 
+             {"about her boss": [["rude", "narcissistic", "disrespectful"], ["with a huge salary"]],
+              "about Sheila": [["mean", "noisy"], ["from the next cubicle", "three rows down", "on the second floor"]],
+              "at the cafe": [["new", "local", "artisan"], ["with a patio", "with outdoor seating"]],
+              "at the mall": [["nearby", "shopping"], ["with the restaurants", "with vegan food"]],
+              "inside the restaurant": [["popular", "expensive", "American", "seafood"], ["on main street", "in downtown"]],
+              "about the project": [["disorganized", "catastropic", "failing"], ["in the data", "for the analysis", "for the paper"]],
+              "about a raise": [["large", "generous", "annual"], ["for the budget", "for her project"]]}],
+          ["complained"]: 
+            [{"to her friend": [["sweet", "quiet", "short"], ["from college", "in Nebraska"]],
+              "to the woman": [["bright", "helpful", "professional"], ["in HR", "at her job"]],
+              "with her brother": [["annoying", "younger"], ["with the red hat"]]}, 
+             {"about her boss": [["rude", "narcissistic", "disrespectful"], ["with a huge salary"]],
+              "about Sheila": [["mean", "noisy"], ["from the next cubicle", "three rows down", "on the second floor"]]}],
+          ["walked", "biked"]: 
+            [{"with Emily": [["her good friend"], ["and her friends", "from class"]],
+              "without anyone else": [[], ["to have some quiet", "after a long day"]],
+              "with her brother": [["annoying", "younger"], ["with the red hat"]]}, 
+             {"to the movie": [["new", "Marvel", "action"], ["in theatres", "in downtown"]],
+              "to the mall": [["nearby", "old", "shopping"], ["with a food court", "with fast food"]],
+              "to our class": [["morning", "advanced", "math"], ["with Mr. Jones", "in the science building"]]}],
+          ["met", "ate"]: 
+            [{"with Emily": [["her good friend"], ["and her friends", "from class"]],
+              "with the man": [["tall", "attractive", "buff"], ["from her gym"]],
+              "with her professor": [["favorite", "old", "science"], ["in the biology department", "at the university"]]}, 
+             {"at the cafe": [["new", "local", "artisan"], ["with a patio", "with outdoor seating"]],
+              "at the mall": [["nearby", "shopping"], ["with the restaurants", "with vegan food"]],
+              "inside the restaurant": [["popular", "expensive", "American", "seafood"], ["on main street", "in downtown"]]}],
+          ["argued", "negotiated", "discussed"]: 
+            [{"with her team": [["new", "assigned", "economics"], ["for stock predictions", "in the finance branch", "in economics"]],
+              "with her boss": [["rude", "ignorant", "unprofessional"], ["from Cincinnati"]],
+              "during the conference": [["annual", "academia", "charity"], ["in Nepal", "for research endeavors", "in economics"]],
+              "during the meeting": [["dedicated", "internal", "complaints"], ["for speaking with HR", "about company funding", "for organized projects"]]}, 
+             {"about the project": [["disorganized", "catastropic", "failing"], ["in the data", "for the analysis", "for the paper"]],
+              "about a raise": [["large", "generous", "annual"], ["for the budget", "for her project"]]}]}
 
 count = 0
 dict_list = []
-for subject in subjects:
-    for verb in verbs:
-        for noun in nouns:
-            for mod_type in ['adj', 'pp']:
-                for weight1 in [0,1,1,1,2,2,2,3,3]:
-                    for weight2 in [0, 1, 1, 1, 2, 2, 2]:
-                        for prep2 in prepositions2:
-                            noun_split = noun.split()
-                            adj_list = list(np.random.choice(adjectives, weight1, replace=False))
-                            prep_list = list(np.random.choice(prepositions1, weight2, replace=False))
-                            if weight1 == 0:
-                                if weight2 == 0:
-                                    unshifted_sentence = f"{subject} {verb} {noun} {prep2}."
-                                    shifted_sentence = f"{subject} {verb} {prep2} {noun}."
-                                else:
-                                    unshifted_sentence = f"{subject} {verb} {noun} {' '.join(prep_list)} {prep2}."
-                                    shifted_sentence = f"{subject} {verb} {prep2} {noun} {' '.join(prep_list)}."
-                            else:
-                                if weight2 == 0:
-                                    unshifted_sentence = f"{subject} {verb} {noun_split[0]} {', '.join(adj_list)} {noun_split[1]}{prep2}."
-                                    shifted_sentence = f"{subject} {verb} {prep2} {noun_split[0]} {', '.join(adj_list)} {noun_split[1]}."
-                                else:
-                                    unshifted_sentence = f"{subject} {verb} {noun_split[0]} {', '.join(adj_list)} {noun_split[1]} {' '.join(prep_list)} {prep2}."
-                                    shifted_sentence = f"{subject} {verb} {prep2} {noun_split[0]} {', '.join(adj_list)} {noun_split[1]} {' '.join(prep_list)}."
-                            data = [unshifted_sentence, shifted_sentence]
-    
-                            print(count)
-                            print(unshifted_sentence, str(scores[0]))
-                            print(shifted_sentence, str(scores[1]))
-                            unshifted_data = {'id': count, 'sentence': unshifted_sentence, 'shifted': False, 'subject': subject, 'verb': verb, 'noun': noun, 'adjectives': adj_list, 'prepositions': prep_list, 'final_con': prep2, 'final_con_type': 'pp', 'score':scores[0]}
-                            shifted_data = {'id': count, 'sentence': shifted_sentence, 'shifted': True, 'subject': subject, 'verb': verb, 'noun': noun, 'adjectives': adj_list, 'prepositions': prep_list, 'final_con': prep2, 'final_con_type': 'pp', 'score':scores[1]}
-                            dict_list.append(unshifted_data)
-                            dict_list.append(shifted_data)
-                            count += 1
+
+for verb in pivots:
+  obj1_dict, obj2_dict = pivots[verb]
+
+  for obj1 in obj1_dict:
+    adjs1, preps1 = obj1_dict[obj1]
+    adj1_list = list(powerset(adjs1))
+    prep1_list = list(powerset(preps1))
+
+    for obj2 in obj2_dict:
+      adjs2, preps2 = obj2_dict[obj2]
+      adj2_list = list(powerset(adjs2))
+      prep2_list = list(powerset(preps2))
+
+      for adj1 in adj1_list:
+        for adj2 in adj2_list:
+          for prep1 in prep1_list:
+            for prep2 in prep2_list:
+
+              if len(adj1) == 0:
+                if len(prep1) == 0:
+                  full_obj1 = obj1
+                else:
+                  full_obj1 = f'{obj1} {' '.join(prep1)}'
+                  
+              else:
+                if len(prep1) == 0:
+                  full_obj1 = f'{', '.join(adj1)} {obj1}'
+                else:
+                  full_obj1 = f'{', '.join(adj1)} {obj1} {' '.join(prep1)}'
+              
+              if len(adj2) == 0:
+                if len(prep2) == 0:
+                  full_obj2 = obj2
+                else:
+                  full_obj2 = f'{obj2} {' '.join(prep2)}'
+                  
+              else:
+                if len(prep2) == 0:
+                  full_obj2 = f'{', '.join(adj2)} {obj2}'
+                else:
+                  full_obj2 = f'{', '.join(adj2)} {obj2} {' '.join(prep2)}'
+              
+              shifted_sentence = f'John {verb} {full_obj1} {full_obj2}.'
+              unshifted_sentence = f'John {verb} {full_obj2} to {full_obj1}.' ### Note 'to' vs. 'for' is variable depending on object/verb
+              data = [unshifted_sentence, shifted_sentence]
+              unshifted_data = {'id': count, 'sentence': unshifted_sentence, 'shifted': False, 'subject': 'John', 'verb': verb, 'obj1': obj1, 'adjs1': adj1, 'preps1': prep1, 'obj2': obj2, 'adjs2': adj2, 'preps2': prep2}
+              shifted_data = {'id': count, 'sentence': shifted_sentence, 'shifted': True, 'subject': 'John', 'verb': verb, 'obj1': obj1, 'adjs1': adj1, 'preps1': prep1, 'obj2': obj2, 'adjs2': adj2, 'preps2': prep2}
+              dict_list.append(unshifted_data)
+              dict_list.append(shifted_data)
+              count += 1
 
 with open('mpp_OUTPUT.json', 'w') as fp:
     for dictionary in dict_list:
         line = json.dumps(dictionary) + '\n'
         fp.write(line)
-
-

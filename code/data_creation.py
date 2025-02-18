@@ -158,12 +158,87 @@ with open('pm_OUTPUT.json', 'w') as fp:
 
 #====================GENERATING DA DATA [TODO]====================
 
-prepositions1 = ["with the coat", "from California"]
-prepositions2 = ["in the store", "from the market", "at the park", "behind the gym", "at work", "at the event"]
-verbs = ["met", "saw", "passed", "greeted"]
-nouns = ["the man", "the woman", "his friend", "her friend", "his uncle", "her uncle", "his roommate", "her roommate"]
-subjects = ["I", "He", "They", "She"]
-adjectives = ["wealthy", "tall", "chatty", "older"]
+pivots = {
+     "gave": [{"his roommate": [["sweet", "friendly", "college"], ["from Dubai"]], 
+               "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
+               "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]]},
+              {}],
+     "sent": [{"his roommate": [["sweet", "friendly", "college"], ["from Dubai"]], 
+               "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
+               "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]],
+               "his family": [["large", "religious", "extended"], ["from the farms", "in the plains", "in Kansas"]],
+               "his wife": [["estranged", "unfaithful"], ["from Vegas", "with the gambling addiction"]]}, 
+              {"": [[], []]}],
+     "mailed": [{"his roommate": [["sweet", "friendly", "college"], ["from Dubai"]], 
+               "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
+               "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]],
+               "his family": [["large", "religious", "extended"], ["from the farms", "in the plains", "in Kansas"]],
+               "his wife": [["estranged", "unfaithful"], ["from Vegas", "with the gambling addiction"]]}, 
+                {"": [[], []]}], 
+     "shipped": [{"his roommate": [["sweet", "friendly", "college"], ["from Dubai"]], 
+               "his sister": [["older", "step"], ["in college", "in Arkansas"]], 
+               "his friend": [["good", "trusted", "longtime"], ["with the medical degree", "from Michigan"]]}, 
+                 {"": [[], []]}],
+     "played": [{"his friend": [["good", "childhood"], []],
+                 "his roommate": [["new", "visiting", "exchange"], []],
+                 "his mom": [["sweet", "supportive", "caring"], []]}, 
+                {"": [[], []]}],
+     "showed": [{"his friend": [["good", "childhood"], []],
+                 "his roommate": [["new", "visiting", "exchange"], []],
+                 "his mom": [["sweet", "supportive", "caring"], []],
+                 "the group": [["large", "crowded", "tour"], []],
+                 "his sister": [["tall", "older", "step"], []]}, 
+                {"": [[], []]}],
+     "wrote": [{"his family": [["large", "religious", "extended"], []],
+                "his wife": [["estranged", "unfaithful"], []]}, 
+               {"": [[], []]}],
+     "drafted": [{"his family": [["large", "religious", "extended"], []],
+                  "his wife": [["estranged", "unfaithful"], []]}, 
+                 {"": [[], []]}],
+     "sells": [{"immigrants": [["fresh", "American"], []],
+                "students": [["wealthy", "college"], []]},
+               {"": [[], []]}],
+     "rents": [{"immigrants": [["fresh", "American"], []],
+                "students": [["wealthy", "college"], []]},
+               {"": [[], []]}],
+     "leases": [{"immigrants": [["fresh", "American"], []],
+                 "students": [["wealthy", "college"], []]},
+                {"": [[], []]}],
+     "brought": [{"his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
+                  "Mary": [["friendly"], ["from the dorms", "in the college"]]}, 
+                 {"": [[], []]}],
+     "left": [{"his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
+               "Mary": [["friendly"], ["from the dorms", "in the college"]]}, 
+              {"": [[], []]}],
+     "cooked": [{"the man": [["poor", "sick", "homeless"], ["on the street", "with a limp"]],
+               "his mother": [["old", "sick", "disabled"], ["at the care home", "in Miami", "with Alzheimers"]],
+               "his family": [["large", "hungry"], ["of ten", "with extended relatives", "from Mississippi"]],
+               "his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
+               "Mary": [["friendly"], ["from the dorms", "in the college"]]}, 
+                {"": [[], []]}],
+     "prepared": [{"the man": [["poor", "sick", "homeless"], ["on the street", "with a limp"]],
+               "his mother": [["old", "sick", "disabled"], ["at the care home", "in Miami", "with Alzheimers"]],
+               "his family": [["large", "hungry"], ["of ten", "with extended relatives", "from Mississippi"]],
+               "his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
+               "Mary": [["friendly"], ["from the dorms", "in the college"]]},
+                  {"": [[], []]}],
+     "made": [{"the man": [["poor", "sick", "homeless"], ["on the street", "with a limp"]],
+               "his mother": [["old", "sick", "disabled"], ["at the care home", "in Miami", "with Alzheimers"]],
+               "his family": [["large", "hungry"], ["of ten", "with extended relatives", "from Mississippi"]],
+               "his friend": [["loyal", "best"], ["in the sports club", "in Ohio"]],
+               "Mary": [["friendly"], ["from the dorms", "in the college"]]},
+              {"": [[], []]}],
+     "built": [{"his parents": [["kind", "old", "disabled"], ["from Bulgaria"]],
+                "the citizens": [["injured", "homeless"], ["without shelter", "in a city", "in the Midwest"]],
+                "the children": [["young", "poor", "orphaned"], ["from the disaster", "in his town"]],
+                "his brother": [["unemployed", "sick", "younger"], ["with cancer", "from the mines"]]}, 
+               {"": [[], []]}],
+     "constructed": [{"his parents": [["kind", "old", "disabled"], ["from Bulgaria"]],
+                      "the citizens": [["injured", "homeless"], ["without shelter", "in a city", "in the Midwest"]],
+                      "the children": [["young", "poor", "orphaned"], ["from the disaster", "in his town"]],
+                      "his brother": [["unemployed", "sick", "younger"], ["with cancer", "from the mines"]]},
+                     {"": [[], []]}]
+}
 
 count = 0
 dict_list = []
@@ -221,3 +296,5 @@ with open('mpp_OUTPUT.json', 'w') as fp:
     for dictionary in dict_list:
         line = json.dumps(dictionary) + '\n'
         fp.write(line)
+
+

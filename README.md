@@ -1,8 +1,10 @@
 # Language Models Largely Exhibit Human-like Constituent Ordering Preferences
 
-*Ada D. Tur, Gaurav Kamath, Siva Reddy*
+*Ada D. Tur\*, Gaurav Kamath\*, Siva Reddy*
 
-:tada:Accepted at NAACL 2025!:tada:
+\* Equal Contribution
+
+:tada:Accepted at NAACL 2025 Main!:tada:
 
 ## Details
 

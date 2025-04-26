@@ -6,6 +6,8 @@
 
 :tada:Accepted at NAACL 2025 Main!:tada:
 
+:trophy:Winner of the SAC Award in Linguistic Theories, Cognitive Modeling, and Psycholinguistic Track at NAACL 2025!:trophy:
+
 ## Details
 
 See the ```data``` and ```code``` folders for information on accessing our public data corpus, as well as code used to generate/collect and process data for experimentation.
